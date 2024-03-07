@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
@@ -45,14 +46,16 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF2B2B2B),
-      appBar: AppBar(
-        title: Text('NERD BOARD - Login'),
-      ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              '../assets/login.png',
+              width: 200, // largura do logo
+              height: 200, // altura do logo
+            ),
             TextField(
               controller: _usernameController,
               decoration: InputDecoration(
@@ -70,10 +73,22 @@ class LoginPage extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             SizedBox(height: 20),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.black), // Cor de fundo preta
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            6.0), // Borda levemente arredondada
+                      ),
+                    ),
+                    minimumSize: MaterialStateProperty.all<Size>(
+                        Size(200, 50)), // Tamanho mínimo do botão
+                  ),
                   onPressed: () async {
                     final loginProvider =
                         Provider.of<LoginProvider>(context, listen: false);
@@ -83,13 +98,33 @@ class LoginPage extends StatelessWidget {
                       context,
                     );
                   },
-                  child: Text('Entrar'),
+                  child: Text('Entrar', style: TextStyle(color: Colors.white)),
                 ),
+                SizedBox(height: 16),
+                Divider(
+                  color:
+                      const Color.fromARGB(255, 184, 184, 184), // Cor da linha
+                  thickness: 1, // Espessura da linha
+                ),
+                SizedBox(height: 16),
                 ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.black), // Cor de fundo preta
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            6.0), // Borda levemente arredondada
+                      ),
+                    ),
+                    minimumSize: MaterialStateProperty.all<Size>(
+                        Size(200, 50)), // Tamanho mínimo do botão
+                  ),
                   onPressed: () {
                     Navigator.pushNamed(context, '/signup');
                   },
-                  child: Text('Cadastro'),
+                  child:
+                      Text('Cadastro', style: TextStyle(color: Colors.white)),
                 ),
               ],
             ),
