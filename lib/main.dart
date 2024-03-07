@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'NERD BOARD',
+        debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
           '/': (context) => LoginPage(),
@@ -42,4 +43,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

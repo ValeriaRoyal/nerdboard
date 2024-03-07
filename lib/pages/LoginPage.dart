@@ -44,6 +44,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF2B2B2B),
       appBar: AppBar(
         title: Text('NERD BOARD - Login'),
       ),
@@ -54,13 +55,19 @@ class LoginPage extends StatelessWidget {
           children: [
             TextField(
               controller: _usernameController,
-              decoration: InputDecoration(labelText: 'Username'),
+              decoration: InputDecoration(
+                  labelText: 'Username',
+                  labelStyle: TextStyle(color: Colors.white)),
+              style: TextStyle(color: Colors.white),
             ),
             SizedBox(height: 10),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: InputDecoration(
+                  labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.white)),
               obscureText: true,
+              style: TextStyle(color: Colors.white),
             ),
             SizedBox(height: 20),
             Row(
