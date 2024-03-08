@@ -34,8 +34,20 @@ class _RankingPageState extends State<RankingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ranking'),
+        centerTitle: true,
+        title: Text(
+          'Ranking',
+          // textAlign: TextAlign.center,
+          style: TextStyle(
+            color: const Color.fromARGB(255, 255, 255, 255),
+            fontSize: 36,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
+      backgroundColor: Color(0xFF2B2B2B),
       body: players.isEmpty
           ? Center(child: CircularProgressIndicator())
           : _buildRankingList(),

@@ -61,7 +61,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('NERD BOARD - Cadastro'),
+        // title: Text('NERD BOARD - Cadastro'),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.white),

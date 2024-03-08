@@ -18,7 +18,8 @@ class _ResultsPageState extends State<ResultsPage> {
 
   Future<void> _getPlayers() async {
     try {
-      final query = QueryBuilder(ParseObject('_User'))..orderByDescending('ranking');
+      final query = QueryBuilder(ParseObject('_User'))
+        ..orderByDescending('ranking');
       final response = await query.query();
       setState(() {
         players = response.results as List<ParseObject>;
@@ -46,7 +47,8 @@ class _ResultsPageState extends State<ResultsPage> {
     return sorteios;
   }
 
-  ParseObject _sortearOponente(ParseObject player, List<ParseObject> availablePlayers) {
+  ParseObject _sortearOponente(
+      ParseObject player, List<ParseObject> availablePlayers) {
     final random = Random();
     final index = random.nextInt(availablePlayers.length);
     return availablePlayers[index];
@@ -56,7 +58,14 @@ class _ResultsPageState extends State<ResultsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sorteio para Enfrentamento'),
+        centerTitle: true,
+        title: Text(
+          'Pareamento',
+          style: TextStyle(
+            color: const Color.fromARGB(255, 255, 255, 255),
+            fontSize: 36,
+          ),
+        ),
       ),
       body: players.isEmpty
           ? Center(child: CircularProgressIndicator())
